@@ -228,25 +228,48 @@ class ViewHome extends State<HomeScreen> {
             ),
           ),
           // SizedBox(height: 50,),
-          Padding(
-            padding: const EdgeInsets.only(top: 30,left: 15),
-            child: Expanded(
-              child: Column(
-                children: [
-                 Row(
-                   children: [
-                    TextButton(
-                        onPressed: () {
-
-                        }, child: const Text('Nghe Gần đây >',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),))
-                   ],
-                 ),
-
-                ],
-              )
+      Padding(
+        padding: const EdgeInsets.only(top: 30, left: 15),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Nghe Gần đây >',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
             ),
-          )
-        ],
+            Container(
+              height: 300,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('quaylai.jpg'),
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      )
+      ],
       ),
     );
   }
