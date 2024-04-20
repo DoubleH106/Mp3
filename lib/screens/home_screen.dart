@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
+import 'package:audioplayers/audioplayers.dart';
+// import 'package:audioplayers/audio_cache.dart';
 class HomeScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -10,6 +10,16 @@ class HomeScreen extends StatefulWidget {
 }
 
 class ViewHome extends State<HomeScreen> {
+  final AudioPlayer audioPlayer = AudioPlayer();
+  // Hàm để phát nhạc
+  // void playSound() {
+  //   final player = AudioCache();
+  //   player.play('my_song.mp3'); // Đường dẫn của tệp nhạc trong thư mục assets
+  // }
+  void playMusic() async {
+    await audioPlayer.play('y2meta.com - HOÀNG TÔN - YÊU EM RẤT NHIỀU (Lyrics Video) (128 kbps).mp3' as Source); // Thay đổi thành đường dẫn của tệp nhạc của bạn
+    print('Đã phát nhạc');
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,8 +29,10 @@ class ViewHome extends State<HomeScreen> {
           children: [
             const Text(
               'Trang chủ',
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 30),
             ),
             IconButton(
                 onPressed: () {},
@@ -57,7 +69,8 @@ class ViewHome extends State<HomeScreen> {
                           Column(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(right: 70,top: 15),
+                                padding:
+                                    const EdgeInsets.only(right: 70, top: 15),
                                 child: Container(
                                   width: 100,
                                   decoration: BoxDecoration(
@@ -81,7 +94,10 @@ class ViewHome extends State<HomeScreen> {
                                         padding: EdgeInsets.only(left: 15),
                                         child: Text(
                                           'Nhạc hoa lời Việt Mới Nhất',
-                                          style: TextStyle(fontSize: 17,color: Colors.white,fontWeight: FontWeight.bold),
+                                          style: TextStyle(
+                                              fontSize: 17,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                       Padding(
@@ -101,11 +117,13 @@ class ViewHome extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 20,),
+                  const SizedBox(
+                    width: 20,
+                  ),
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                       width: 200,
+                      width: 200,
                       height: 300,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
@@ -118,7 +136,8 @@ class ViewHome extends State<HomeScreen> {
                           Column(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(right: 70,top: 15),
+                                padding:
+                                    const EdgeInsets.only(right: 70, top: 15),
                                 child: Container(
                                   width: 100,
                                   decoration: BoxDecoration(
@@ -127,9 +146,9 @@ class ViewHome extends State<HomeScreen> {
                                   ),
                                   child: const Center(
                                       child: Text(
-                                        'Mới Cập Nhật',
-                                        style: TextStyle(color: Colors.white),
-                                      )),
+                                    'Mới Cập Nhật',
+                                    style: TextStyle(color: Colors.white),
+                                  )),
                                 ),
                               ),
                               const Expanded(
@@ -142,7 +161,10 @@ class ViewHome extends State<HomeScreen> {
                                         padding: EdgeInsets.only(left: 15),
                                         child: Text(
                                           'Những bài hát Hot nhất tháng',
-                                          style: TextStyle(fontSize: 17,color: Colors.white,fontWeight: FontWeight.bold),
+                                          style: TextStyle(
+                                              fontSize: 17,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                       Padding(
@@ -162,7 +184,9 @@ class ViewHome extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 20,),
+                  const SizedBox(
+                    width: 20,
+                  ),
                   GestureDetector(
                     onTap: () {},
                     child: Container(
@@ -179,7 +203,8 @@ class ViewHome extends State<HomeScreen> {
                           Column(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(right: 70,top: 15),
+                                padding:
+                                    const EdgeInsets.only(right: 70, top: 15),
                                 child: Container(
                                   width: 100,
                                   decoration: BoxDecoration(
@@ -188,9 +213,9 @@ class ViewHome extends State<HomeScreen> {
                                   ),
                                   child: const Center(
                                       child: Text(
-                                        'Mới Cập Nhật',
-                                        style: TextStyle(color: Colors.white),
-                                      )),
+                                    'Mới Cập Nhật',
+                                    style: TextStyle(color: Colors.white),
+                                  )),
                                 ),
                               ),
                               const Expanded(
@@ -203,7 +228,10 @@ class ViewHome extends State<HomeScreen> {
                                         padding: EdgeInsets.only(left: 15),
                                         child: Text(
                                           'Nam Thần Nhạc Việt',
-                                          style: TextStyle(fontSize: 17,color: Colors.white,fontWeight: FontWeight.bold),
+                                          style: TextStyle(
+                                              fontSize: 17,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
                                         ),
                                       ),
                                       Padding(
@@ -227,19 +255,16 @@ class ViewHome extends State<HomeScreen> {
               ),
             ),
           ),
-          // SizedBox(height: 50,),
-      Padding(
-        padding: const EdgeInsets.only(top: 30, left: 15),
-        child: Column(
-          children: [
-            Row(
+          Padding(
+            padding: const EdgeInsets.only(top: 30, left: 5),
+            child: Row(
               children: [
                 TextButton(
                   onPressed: () {},
                   child: const Text(
-                    'Nghe Gần đây >',
+                    'Chủ đề & thể loại >',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 25,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
@@ -247,29 +272,209 @@ class ViewHome extends State<HomeScreen> {
                 ),
               ],
             ),
-            Container(
-              height: 300,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15, top: 10),
+            child: Container(
+              height: 80,
+              // width: 80,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('quaylai.jpg'),
-                          fit: BoxFit.fill,
-                        ),
-                      ),
-                    ),
-                  ),
+                  Row(
+                    children: [
+                      ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                              minimumSize: Size(170, 80),
+                              backgroundColor: Colors.blue,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              )),
+                          child: const Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(right: 100, top: 15),
+                                child: Icon(
+                                  Icons.music_note_outlined,
+                                  color: Color.fromRGBO(255, 255, 255, 10),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: 0),
+                                child: Text(
+                                  "BXH Nhạc Mới",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ],
+                          )),
+                    ],
+                  )
                 ],
               ),
             ),
-          ],
-        ),
-      )
-      ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 30, left: 5),
+            child: Row(
+              children: [
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Mới phát hành >',
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15, top: 15),
+            child: Row(
+              children: [
+                ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      side: const BorderSide(color: Colors.black),
+                    ),
+                    child: const Text(
+                      "Tất cả",
+                      style: TextStyle(color: Colors.black),
+                    )),
+                const SizedBox(
+                  width: 10,
+                ),
+                ElevatedButton(
+                    onPressed: () {},
+                    child: const Text("Việt Nam",
+                        style: TextStyle(color: Colors.black))),
+                const SizedBox(
+                  width: 10,
+                ),
+                ElevatedButton(
+                    onPressed: () {},
+                    child: const Text("Quốc Tế",
+                        style: TextStyle(color: Colors.black)))
+              ],
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 15, top: 15),
+              child: Container(
+                height: double.infinity,
+                width: double.infinity,
+                child: ListView(
+                  physics: AlwaysScrollableScrollPhysics(),
+                  // scrollDirection: Axis.horizontal,
+                  children: [
+                    Row(
+                      children: [
+                        Column(
+                          children: [
+                            GestureDetector(
+                                onTap: () {
+                                  playMusic();
+                                },
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      decoration: const BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage("yeuemratnhieu.jpg"),
+                                          )
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10,),
+                                    const Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Yêu Em Rất Nhiều",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),),
+                                        Text("Hoàng Tôn"),
+                                        Text("1 giờ trước")
+                                      ],
+                                    )
+                                  ],
+                                )
+                            ),
+                            GestureDetector(
+                                onTap: () {
+                                  playMusic();
+                                },
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      decoration: const BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage("yeuemratnhieu.jpg"),
+                                          )
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10,),
+                                    const Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Yêu Em Rất Nhiều",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),),
+                                        Text("Hoàng Tôn"),
+                                        Text("1 giờ trước")
+                                      ],
+                                    )
+                                  ],
+                                )
+                            ),
+                            GestureDetector(
+                                onTap: () {
+                                  playMusic();
+                                },
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 100,
+                                      height: 100,
+                                      decoration: const BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage("yeuemratnhieu.jpg"),
+                                          )
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10,),
+                                    const Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text("Yêu Em Rất Nhiều",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),),
+                                        Text("Hoàng Tôn"),
+                                        Text("1 giờ trước")
+                                      ],
+                                    )
+                                  ],
+                                )
+                            )
+                          ],
+                        ),
+
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
